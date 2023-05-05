@@ -1,6 +1,9 @@
 *{
     margin: 0;
     padding: 0;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     font-family: Robboto;
 }
 
@@ -14,10 +17,10 @@
 .first-header {
     width: 100%;
     height: 20px;
-    padding: 20px;
+    padding: 15px;
     margin: auto;
     background: var(--color-primary);
-    display: flex;
+    display: flexbox;
     align-items: center;
     justify-content: space-between;
 }
