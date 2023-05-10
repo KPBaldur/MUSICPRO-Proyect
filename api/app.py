@@ -17,3 +17,12 @@ app.config['DEBUG'] = False
 app.config['ENV'] = 'development'
 app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+db.init_app(app)
+
+Migrate(app, db)
+
+
+
+if __name__ == '__main__':
+    app.run(port=5500, debug=True)
