@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
-class Prodcuto(db.Model):
+class Producto(db.Model):
     __tablename__ = 'Producto'
     id_producto = db.Column(db.Integer, primary_key=True)
     codigo = db.Column(db.String(250), nullable= False)
