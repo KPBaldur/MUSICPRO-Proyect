@@ -10,17 +10,23 @@ from flask_cors import CORS, cross_origin
 
 # 3 instanciamos la app 
 app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Conten-Type'
-app.url_map.strict_slashes = False
-app.config['DEBUG'] = False
-app.config['ENV'] = 'development'
-app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'html:///database.db'
 
-db.init_app(app)
+@app.route('/')
+def index():
+    return 'Hola Prueba'
 
-Migrate(app, db)
+if __name__ == "__main__":
+    app.run()
+
 
 # 5 Creamos la ruta por defecto para saber si mi app esta funcionando
 # 6 Ejecutamos el comando en la consola: python app.py o python3 app.py o py app.py y revisamos nuestro navegador
+
+
+# 7 ruta para consultar todos los productos
+
+
+# 8. comando para iniciar mi app flask: flask db init
+# 9. comando para migrar mis modelos:   flask db migrate
+# 10. comando para crear nuestros modelos como tablas : flask db upgrade
+# 11. comando para iniciar la app flask: flask run
