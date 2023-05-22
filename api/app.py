@@ -3,9 +3,9 @@
 # 2 Importamos las librerias de flask
 
 from flask import Flask, request, jsonify
-from flask_migrate import Migrate, MigrateCommand
+#from flask_migrate import Migrate, MigrateCommand
 from sqlalchemy import desc
-from models import db, Producto, Cliente, Vendedor
+from models import db, Producto
 from flask_cors import CORS, cross_origin
 
 # 3 instanciamos la app 
@@ -19,7 +19,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATION'] = False
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 
 db.init_app(app)
-migrate = Migrate(app, db)
+#migrate = Migrate(app, db)
 
 # 5 Creamos la ruta por defecto para saber si mi app esta funcionando
 # 6 Ejecutamos el comando en la consola: python app.py o python3 app.py o py app.py y revisamos nuestro navegador
