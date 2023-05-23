@@ -1,7 +1,7 @@
 const express = require('express');
 const config = require('./config');
 
-const clientes = require('./modulos/clientes/rutas')
+const productos = require('./modulos/productos/rutas')
 
 const app = express();
 
@@ -9,6 +9,6 @@ const app = express();
 app.set('port', config.app.port)
 
 //rutas
-app.use('/api/clientes', clientes)
+app.use('/api/productos', productos)
 
 module.exports = app;
