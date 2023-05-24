@@ -1,4 +1,4 @@
-DROP DATABASE Iplataforma;
+/*DROP DATABASE Iplataforma;*/
 
 CREATE DATABASE Iplataforma;
 

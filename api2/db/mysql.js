@@ -1,8 +1,14 @@
 const mysql = require('mysql');
 const config = require('../config');
 
-function productosTabla(tabla){
+const test = {
+    id: 1,
+    nombre: 'juan',
+    edad: 43,
+}
 
+function productosTabla(tabla){
+    return test ;
 }
 
 function productoId(tabla, id){
