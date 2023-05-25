@@ -34,19 +34,19 @@ function conexmysql(){
 
 conexmysql();
 
-function productosTabla(tabla){
-    return test ;
+function productosTabla(Bodega){
+    return test;
 }
 
-function productoId(tabla, id){
-
-}
-
-function agregarProducto(tabla, data){
+function productoId(Bodega, id){
 
 }
 
-function eliminarProducto (tabla, id){
+function agregarProducto(Bodega, data){
+
+}
+
+function eliminarProducto (Bodega, id){
 
 }
 
