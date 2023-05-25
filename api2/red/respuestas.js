@@ -1,4 +1,4 @@
-exports.success = function (req, res, mensaje = '', status = 200){
+/*exports.success = function (req, res, mensaje = '', status = 200){
     res.status(status).send({
         error:false,
         status: status,
@@ -12,4 +12,4 @@ exports.error = function (req, res, mensaje = 'Error Interno', status = 500){
         status: statusCode,
         body: mensaje
     });
-}
+}*/

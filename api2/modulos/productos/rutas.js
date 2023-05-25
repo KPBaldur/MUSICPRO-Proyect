@@ -1,4 +1,4 @@
-const express = require('express');
+/*const express = require('express');
 
 const respuesta = require('../../red/respuestas');
 const controlador = require('./controlador')
@@ -10,4 +10,4 @@ router.get('/', function(req, res){
     respuesta.success(req, res, productosTabla, 200)
 });
 
-module.exports = router;
+module.exports = router;*/

@@ -1,4 +1,4 @@
-const db = require('../../db/mysql')
+/*const db = require('../../db/DB')
 
 const TABLAPRODUCTOS = 'productos';
 
@@ -8,4 +8,4 @@ function productosTabla (){
 
 module.exports = {
     productosTabla,
-}
+}*/

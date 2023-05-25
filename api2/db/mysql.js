@@ -2,7 +2,7 @@ const mysql = require('mysql');
 const config = require('../config');
 
 const dbconfig = {
-    host: config.mysql.hotst,
+    host: config.mysql.host,
     user: config.mysql.user,
     password: config.mysql.password,
     database: config.mysql.database,
@@ -10,13 +10,13 @@ const dbconfig = {
 
 let conexion; 
 
-function conexmysql(){
+function conMysql(){
     conexion = mysql.createConnection(dbconfig)
 
     conexion.conect((err) => {
         if(err){
             console.log('[db err]', err);
-            setTimeout(conexmysql, 200);
+            setTimeout(conMysql, 200);
         }else{
             console.log('DB Conectada!')
         }
@@ -25,14 +25,14 @@ function conexmysql(){
     conexion.on('error', err=>{
         console.log('[db err]', err);
         if(err.code === 'PROTOCOL_CONNECTION_LOST'){
-            conexmysql();
+            conMysql();
         }else{
             throw err;
         }
     })
 }
 
-conexmysql();
+conMysql();
 
 function productosTabla(Bodega){
     return test;

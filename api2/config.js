@@ -1,4 +1,4 @@
-require('dotenv').config();
+/*require('dotenv').config();
 
 module.exports = {
     app: {
@@ -10,4 +10,4 @@ module.exports = {
         password: process.env.MYSQL_PASSWORD || '',
         database: process.env.MYSLQ_DB || 'prueba',
     }
-}
+}*/
