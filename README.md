@@ -47,4 +47,36 @@ Julio Contesse <br>
 <ul>
   <li>Python</li>
   <li>flask</li>
+  <li>SQLAlchemy</li>
 </ul>
+
+
+<h2>Porque se descartaron estas tecnologias</h2>
+
+Al comienzo del proyecto, utilice lenguaje PYTHON3 para poder levantar la aplicacion y dar comienzo
+a las primeras configuraciones de la API. Se crearon las rutas sin mayor problema hasta el momento 
+de realizar las prebas de funcionalidad. Como se describio anteriormente utilice la libreria FLASK
+para poder correr la aplicacion API. 
+
+Pero al momento de correr la aplicacion API, tuvimos varios problemas con respecto a la configuracion
+de flask. Desde problemas para instalar flask en los equipos de DUOC hasta en mi equipo personal y de mis demas
+compañeros de grupo que no pudieron correr flask.
+
+![image](https://github.com/KPBaldur/MUSICPRO-Proyect/assets/101760063/29c1dc8a-1ca7-4e6c-abf4-373654d6a91d)
+
+El unico lugar y entorno que logre correr PYTHON FLASK fue en un equipo de mi oficina de trabajo el cual es un equipo de prestamo.
+Lo que ya me lleve una amonestacion, trabajando en el codigo en horario laboral, aun en los tiempos muertos se me hacia
+imposible seguir con el codigo.
+
+![image](https://github.com/KPBaldur/MUSICPRO-Proyect/assets/101760063/ca5d5bd2-b125-4e73-8941-112d96fea729)
+<h3>Pruebas para resolver el problema con Python Flask</h3>
+
+Se gasto cerca de 2 semanas intentando hacer funcionar Python Flask, utilizando ayuda de foros como Stackoverflow en el cual nos
+recomendaban Instalar Linux, o formatear por completo nuestro equipo. Utilizamos Chat-GP3 para poder solicitar ayuda con respecto
+a esta inicidencia, lo que dejaremos adjunta la respuesta que nos entrego en ese momento. Intentamos levantarlo tambien en una maquina 
+virtual para corroborar que problemas presentamos pero ya se nos estaba agotando el tiempo.
+
+Hasta que llegada la ultima semana, tomamos la desesperada desicion de migrar de tecnologia, para no seguir perdiendo tiempo intentando hacer funcionar flask,
+asi que de esta manera tomamos la desicion de migrar a NodeJs. 
+
+
