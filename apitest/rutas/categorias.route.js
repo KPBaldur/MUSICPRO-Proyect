@@ -1,4 +1,5 @@
 const express = require('express');
+const { faker } = require ('@faker-js/faker');
 
 const router = express.Router();
 
@@ -9,6 +10,10 @@ router.get('/', (req, res) =>{
     for (let index = 0; index < limit; index++){
       productos.push({
         // Ubicacion de la logica de la categoria
+        name: faker.commerce.productName(),
+        price: parseInt(faker.commerce.price(), 10),
+        imagen: faker.image.imageUrl(),
+        categoria: guitarra()
       })
     }
     res.json(productos);

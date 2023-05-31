@@ -10,30 +10,25 @@ app.get('/', (req, res) =>{
   res.send('Hola prueba de servidor');
 });
 
+
+
+
+
+
 routerApi(app);
 
 
-/* Se deben crear las rutas para los siguientes endpoints
-administradores, vendedores, usuarios, categorias, subcategorias, etc.
-
-app.get('/administradores', (req, res) =>{
-  res.json([
-    {
-    id: '0001',
-    name: 'Admin',
-    }
-  ]);
-});
-
-app.get('/vendedores', (req, res) =>{
-  res.json([
-    {
-    id: '0001',
-    name: 'Admin',
-    }
-  ]);
-});
-*/
+app.get('/users', (req, res) => {
+  const { limit, offset } = req.query;
+  if (limit && offset) {
+    res.json({
+      limit,
+      offset
+    });
+  } else {
+    res.send('No hay parametros');
+  }
+})
 
 app.listen(port, () =>{
   console.log('Mi port' + port);

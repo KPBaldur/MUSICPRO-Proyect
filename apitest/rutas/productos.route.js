@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/', (req, res) =>{
     const productos = [];
     const { size } = req.query;
-    const limit = size || 10;
+    const limit = size || 5;
     for (let index = 0; index < limit; index++){
       productos.push({
         name: faker.commerce.productName(),
@@ -19,11 +19,13 @@ router.get('/', (req, res) =>{
     res.json(productos);
   });
 
+
 router.get('/filter', (req, res) => {
     res.send('Yo soy un filter');
-  })
+  });
 
 
+//Obtener un producto por ID
 router.get('/:id', (req, res) =>{
     const { id } = req.params;
     if (id === '999'){
@@ -71,4 +73,5 @@ router.delete('/:id', (req, res) =>{
 
 
 
+//Exportar ruta como un modulo.
   module.exports = router;

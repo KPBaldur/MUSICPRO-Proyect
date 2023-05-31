@@ -1,0 +1,32 @@
+Si tienes problemas para iniciar Flask, hay algunas posibles soluciones que puedes probar. Aquí hay algunos pasos que puedes seguir:
+
+Verifica que tienes Flask instalado: Antes de iniciar un proyecto Flask, debes asegurarte de tener Flask instalado en tu entorno de desarrollo. Puedes verificarlo ejecutando el siguiente comando en tu terminal:
+sql
+Copy code
+pip show flask
+Si Flask no está instalado, puedes instalarlo usando el siguiente comando:
+
+Copy code
+pip install flask
+Verifica que tienes Python correctamente configurado: Flask requiere Python para funcionar. Asegúrate de tener Python instalado y configurado correctamente en tu sistema. Puedes verificar la versión de Python ejecutando python --version en tu terminal.
+
+Crea un archivo de inicio: En tu proyecto Flask, debes crear un archivo de inicio, por ejemplo, app.py o main.py. Asegúrate de que este archivo contenga el código necesario para iniciar la aplicación Flask. Aquí hay un ejemplo básico de un archivo app.py:
+
+python
+Copy code
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello, World!'
+
+if __name__ == '__main__':
+    app.run()
+Ejecuta la aplicación Flask: Para iniciar tu aplicación Flask, debes ejecutar el archivo de inicio que creaste. En tu terminal, navega hasta el directorio donde se encuentra el archivo app.py y ejecuta el siguiente comando:
+Copy code
+python app.py
+Esto iniciará el servidor Flask y podrás acceder a tu aplicación en tu navegador web en la dirección http://localhost:5000.
+
+Si sigues teniendo problemas para iniciar Flask, asegúrate de proporcionar más detalles sobre el error específico que estás experimentando. Esto ayudará a identificar y solucionar el problema de manera más efectiva.
