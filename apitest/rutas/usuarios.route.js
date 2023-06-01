@@ -1,20 +1,13 @@
 const express = require('express');
-const { faker } = require ('@faker-js/faker');
+
+const UsersService = require ('./../services/usuarios.services');
 
 const router = express.Router();
+const service = new UsersService();
 
 router.get('/', (req, res) =>{
-    const productos = [];
-    const { size } = req.query;
-    const limit = size || 4;
-    for (let index = 0; index < limit; index++){
-      productos.push({
-        name: 'Juan',
-        id: '001',
-        mail: 'juan@correo.cl',
-      })
-    }
-    res.json(productos);
+    const users = service.find();
+    res.json(users);
   });
 
 router.get('/filter', (req, res) => {
@@ -24,12 +17,10 @@ router.get('/filter', (req, res) => {
 
 router.get('/:id', (req, res) =>{
     const { id } = req.params;
-    res.json({
-      name: 'Producto1',
-
-      price: 1000
-      });
+    const users = service.findOne(id);
+    res.json(users);
   });
+
 
 router.post('/', (req, res) =>{
   const body = req.body;

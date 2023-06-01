@@ -1,37 +1,14 @@
 const express = require('express');
-const { faker } = require ('@faker-js/faker');
+
+const ProductService = require ('./../services/product.services');
 
 const router = express.Router();
-
+const service = new ProductService();
 
 //Rutas para consultar productos general
 router.get('/', (req, res) =>{
-    const productos = [];
-    const { size } = req.query;
-    const limit = size || 5;
-    for (let index = 0; index < limit; index++){
-      productos.push([
-        {
-          id: '001',
-          name: 'Guitarra Acustica Mcqueen',
-          precio: '120000',
-          stock: '15'
-        },
-        {
-          id: '002',
-          name: 'Guitarra-Electrica-Jonson',
-          precio: '150000',
-          stock: '4'
-        },
-        {
-          id: '003',
-          name: 'Guitarra Emerson',
-          precio: '180000',
-          stock: '1'
-        },
-      ])
-    }
-    res.json(productos);
+    const products = service.find()
+    res.json(products);
   });
 
 
@@ -43,20 +20,15 @@ router.get('/filter', (req, res) => {
 //Obtener un producto por ID
 router.get('/:id', (req, res) =>{
     const { id } = req.params;
-    if (id === '999'){
-      res.status(404).json({
-        message: 'not found'
-      });
-    } else {
-      res.status(200).json({
-        name: 'Producto1',
-        precio: 1000
-        });
-    }
+    const product = service.findOne(id);
+    res.json(product);
   });
 
 
 
+
+
+/*
 //Metodo para crear productos
 router.post('/', (req, res) =>{
   try {
@@ -81,7 +53,9 @@ router.post('/', (req, res) =>{
   }
 });
 
-/* Ruta original POST
+*/
+
+//Ruta original POST
 router.post('/', (req, res) =>{
   const body = req.body;
   res.status(201).json({
@@ -89,7 +63,7 @@ router.post('/', (req, res) =>{
     data: body
   });
 });
-*/
+
 
 
 //Metodo para actualizar parcialmente productos (actualizar un solo campo)
@@ -97,7 +71,7 @@ router.patch('/:id', (req, res) =>{
   const { id } = req.params;
   const body = req.body;
   res.json({
-    message: 'update',
+    message: 'Parametro/s del producto actualizado',
     data: body,
     id,
   });
@@ -107,7 +81,7 @@ router.patch('/:id', (req, res) =>{
 router.delete('/:id', (req, res) =>{
   const { id } = req.params;
   res.json({
-    message: 'deleted',
+    message: 'Producto eliminado',
     id,
   });
 });
