@@ -28,7 +28,7 @@ router.get('/:id', (req, res) =>{
 
 
 
-/*
+
 //Metodo para crear productos
 router.post('/', (req, res) =>{
   try {
@@ -36,7 +36,7 @@ router.post('/', (req, res) =>{
     if (!id || !name || !precio || !stock ){
       return res.status(400).json({ error: 'Faltan datos del producto'});
     }
-    const nuevoProducto = {
+    const newProduct= {
       id,
       name,
       precio,
@@ -53,15 +53,12 @@ router.post('/', (req, res) =>{
   }
 });
 
-*/
 
 //Ruta original POST
 router.post('/', (req, res) =>{
   const body = req.body;
-  res.status(201).json({
-    message: 'created',
-    data: body
-  });
+  const newProduct = service.create(body);
+  res.status(201).json(newProduct);
 });
 
 
@@ -70,20 +67,15 @@ router.post('/', (req, res) =>{
 router.patch('/:id', (req, res) =>{
   const { id } = req.params;
   const body = req.body;
-  res.json({
-    message: 'Parametro/s del producto actualizado',
-    data: body,
-    id,
-  });
+  const product = service.update(id, body);
+  res.json(product);
 });
 
 //Metodo para borrar un producto
 router.delete('/:id', (req, res) =>{
   const { id } = req.params;
-  res.json({
-    message: 'Producto eliminado',
-    id,
-  });
+  const rta = service.delete(id)
+  res.json(rta);
 });
 
 
