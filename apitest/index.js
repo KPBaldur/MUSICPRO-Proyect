@@ -1,6 +1,8 @@
 const express = require('express');
 const routerApi = require('./rutas')
 
+const { logErrors, errorHandler, boomerrorHandler } = require('./middlewares/error.handler')
+
 const app = express();
 const port = 3000;
 
@@ -10,25 +12,11 @@ app.get('/', (req, res) =>{
   res.send('Hola prueba de servidor');
 });
 
-
-
-
-
-
 routerApi(app);
 
-
-app.get('/users', (req, res) => {
-  const { limit, offset } = req.query;
-  if (limit && offset) {
-    res.json({
-      limit,
-      offset
-    });
-  } else {
-    res.send('No hay parametros');
-  }
-})
+app.use(logErrors);
+app.use(boomerrorHandler);
+app.use(errorHandler);
 
 app.listen(port, () =>{
   console.log('Mi port' + port);
