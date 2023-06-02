@@ -1,6 +1,8 @@
 const express = require('express');
 
 const ProductService = require ('./../services/product.services');
+const validatorHandler = require ('./../middlewares/validator.handler');
+const {createProductSchema, updateProductSchema, getProductSchema} = require ('./../schemas/products.schema');
 
 const router = express.Router();
 const service = new ProductService();
@@ -18,7 +20,9 @@ router.get('/filter', (req, res) => {
 
 
 //Obtener un producto por ID
-router.get('/:id', async (req, res, next) =>{
+router.get('/:id',
+  validatorHandler(),
+  async (req, res, next) =>{
     try {
       const { id } = req.params;
       const product = await service.findOne(id);
