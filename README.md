@@ -44,6 +44,8 @@ Julio Contesse <br>
   <li>nodemon</li>
   <li>prettier</li>
   <li>Faker</li>
+  <li>Happi Boom</li>
+  
 </ul>
 
 <h3>Tecnologias, librerias y frameworks descartados</h3>
@@ -104,6 +106,13 @@ Instale Faker con el siguiente comando: npm i faker@5.5.3 -S
 ![image](https://github.com/KPBaldur/MUSICPRO-Proyect/assets/101760063/a0e44667-b92d-4669-bc74-ff4b3ae71310)
 
 Y luego se creo una constante y exporto faker a esta constante, para poder traer los datos ficticios para los productos para realizar las pruebas del CRUD de la aplicacion.
+
+
+<h3>Uso de la libreria Happi Boom</h3>
+
+Para poder tener un mayor control y conocimiento con respecto a los datos que estamos introduccion en nuestra lista de productos, esto para poder entregar datos de informacion correctos segun el tipo de error.
+
+En otras palabras si al buscar un produto y este no se encuentre en la lista de productos, nos entregue un codigo (404) mas un mensaje de error de "Producto no enccontrado" si cargamos un producto nos envie un codigo (201) de "OK" y asi sucesivamente
 
 
 </p>
