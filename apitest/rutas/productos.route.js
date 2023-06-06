@@ -21,7 +21,7 @@ router.get('/filter', (req, res) => {
 
 //Obtener un producto por ID
 router.get('/:id',
-  validatorHandler(),
+  validatorHandler(getProductSchema, 'params'),
   async (req, res, next) =>{
     try {
       const { id } = req.params;
@@ -34,7 +34,9 @@ router.get('/:id',
 
 
 //Ruta original POST
-router.post('/', async (req, res) =>{
+router.post('/',
+  validatorHandler(createProductSchema, 'body'),
+  async (req, res) =>{
   const body = req.body;
   const newProduct = await service.create(body);
   res.status(201).json(newProduct);
@@ -43,16 +45,20 @@ router.post('/', async (req, res) =>{
 
 
 //Metodo para actualizar parcialmente productos (actualizar un solo campo)
-router.patch('/:id', async (req, res, next) =>{
-  try {
-    const { id } = req.params;
-    const body = req.body;
-    const product = await service.update(id, body);
-    res.json(product);
-  } catch (error){
-    next(error);
+router.patch('/:id',
+validatorHandler(getProductSchema, 'params'),
+validatorHandler(updateProductSchema, 'body'),
+  async (req, res, next) =>{
+    try {
+      const { id } = req.params;
+      const body = req.body;
+      const product = await service.update(id, body);
+      res.json(product);
+    } catch (error){
+      next(error);
+    }
   }
-});
+);
 
 //Metodo para borrar un producto
 router.delete('/:id', async (req, res) =>{
