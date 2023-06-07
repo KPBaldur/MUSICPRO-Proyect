@@ -33,6 +33,7 @@ router.get('/:id',
   });
 
 
+
 //Ruta original POST
 router.post('/',
   validatorHandler(createProductSchema, 'body'),
