@@ -11,6 +11,8 @@ app.use(express.json());
 app.use(cors());
 
 
+//--------CORS PARA LIMITAR ACCESO
+/*
 const whitelist = ['http://localhost:8080', 'https://myapp.co'];
 const options = {
   origin: (origin, callback) =>{
@@ -22,7 +24,7 @@ const options = {
   }
 };
 app.use(cors(options));
-
+*/
 
 
 
