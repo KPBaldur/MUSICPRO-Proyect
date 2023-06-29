@@ -1,14 +1,15 @@
+const boom = require('@hapi/boom');
+
 const faker = require ('faker');
 
 class UsersService{
-
   constructor(){
     this.users = []
     this.generate();
   }
 
   generate(){
-    const limit = 100;
+    const limit = 10;
     for (let index = 0; index < limit; index++){
       this.users.push({
         id: faker.datatype.uuid(),
@@ -35,7 +36,6 @@ class UsersService{
   }
 
   delete(){
-
   }
 }
 

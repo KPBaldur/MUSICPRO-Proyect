@@ -1,18 +1,14 @@
 const express = require('express');
-
 const UsersService = require ('./../services/usuarios.services');
 
+
+
 const router = express.Router();
-const service = new UsersService();
 
 router.get('/', (req, res) =>{
     const users = service.find();
     res.json(users);
   });
-
-router.get('/filter', (req, res) => {
-    res.send('Yo soy un filter');
-  })
 
 
 router.get('/:id', (req, res) =>{

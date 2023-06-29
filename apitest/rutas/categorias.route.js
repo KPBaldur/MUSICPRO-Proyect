@@ -12,8 +12,6 @@ router.get('/', (req, res) =>{
         // Ubicacion de la logica de la categoria
         name: faker.commerce.productName(),
         price: parseInt(faker.commerce.price(), 10),
-        imagen: faker.image.imageUrl(),
-        categoria: guitarra()
       })
     }
     res.json(productos);
