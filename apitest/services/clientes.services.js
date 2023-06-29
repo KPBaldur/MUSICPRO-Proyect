@@ -46,7 +46,7 @@ class ClientService{
         if (index === -1){
             throw boom.notFound('Client not Found');
         }
-        const product = this.client[index];
+        const client = this.client[index];
         this.client[index] ={
             ...client,
             ...changes

@@ -1,6 +1,5 @@
-const boom = require('@hapi/boom');
-
 const faker = require ('faker');
+const boom = require('@hapi/boom');
 
 class UsersService{
   constructor(){
@@ -14,12 +13,12 @@ class UsersService{
       this.users.push({
         id: faker.datatype.uuid(),
         email: faker.internet.email(),
-        userName: faker.internet.userName()
+        userName: faker.internet.userName(),
       });
     }
   }
 
-  async create(){
+  async create(data){
     const newUser = {
       id: faker.datatype.uuid(),
       ...data
@@ -33,20 +32,39 @@ class UsersService{
   find(){
     return new Promise((resolve, reject) =>{
       setTimeout(() =>{
-        resolve(this.client);
+        resolve(this.users);
       }, 1000);
     });
   }
 
   async findOne(id){
-    return this.users.find(item => item.id === id);
+    const users = this.users.find(item => item.id === id);
+    return users
   }
 
-  upddate(){
 
+  async upddate(id, changes){
+    const index = this.users.findIndex(item => item.id === id);
+    if (index === -1){
+      throw boom.notFound('User not Found');
+    }
+    const users = this.users[index];
+    this.client[index] ={
+      ...users,
+      ...changes
+    };
+    return this.users[index];
   }
 
-  delete(){
+
+
+  async delete(id){
+    const index = this.users.findIndex(item => item.id === id);
+    if (index === -1){
+      throw boom.notFound('Users not Found');
+    }
+    this.users.splice(index, 1);
+    return { id }
   }
 }
 
