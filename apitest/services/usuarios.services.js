@@ -19,16 +19,27 @@ class UsersService{
     }
   }
 
-  create(){
-
+  async create(){
+    const newUser = {
+      id: faker.datatype.uuid(),
+      ...data
+    }
+    this.users.push(newUser);
+    return newUser;
   }
+
+
 
   find(){
-    return this.users;
+    return new Promise((resolve, reject) =>{
+      setTimeout(() =>{
+        resolve(this.client);
+      }, 1000);
+    });
   }
 
-  findOne(id){
-    return this.products.find(item => item.id === id);
+  async findOne(id){
+    return this.users.find(item => item.id === id);
   }
 
   upddate(){

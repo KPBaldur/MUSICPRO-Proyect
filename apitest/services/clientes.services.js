@@ -1,6 +1,6 @@
+const faker = require ('faker');
 const boom = require('@hapi/boom');
 
-const faker = require ('faker');
 
 class ClientService{
     constructor(){
@@ -29,7 +29,7 @@ class ClientService{
     }
 
     find(){
-        return new Promise((resolve, rejecto) =>{
+        return new Promise((resolve, reject) =>{
             setTimeout(() =>{
                 resolve(this.client);
             }, 1500);
@@ -37,14 +37,8 @@ class ClientService{
     }
 
     async findOne(id){
-        const client = this.client.fin(item => item.id === id);
-        if (!product) {
-            throw boom.notFound('Client not Found');
-        }
-        if (product.isBlock) {
-            throw boom.conflict('Client is block');
-        }
-        return product;
+        const client = this.client.find(item => item.id === id);
+        return client
     }
 
     async update(id, changes){
