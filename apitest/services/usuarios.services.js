@@ -8,7 +8,7 @@ class UsersService{
   }
 
   generate(){
-    const limit = 10;
+    const limit = 4;
     for (let index = 0; index < limit; index++){
       this.users.push({
         id: faker.datatype.uuid(),
